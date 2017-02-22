@@ -23,6 +23,6 @@ public class Test_292_NimGame {
      * 练习非递归实现
      */
     private boolean isMustWin(int n) {
-        return n%4 != 0;
+        return false;
     }
 }
