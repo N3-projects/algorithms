@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.Random;
 
 /**
- * @author yemaofpa on 2016/11/14.
+ * @author N3 on 2016/11/14.
  */
 public class Test_136_SingleNumber {
 

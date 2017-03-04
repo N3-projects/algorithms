@@ -8,7 +8,7 @@ package algorithms.leetcode;
  * 算法尽量不要使用额外的内存空间。
  * </p>
  *
- * @author yemaofpa on 2017/2/14.
+ * @author N3 on 2017/2/14.
  */
 public class _136_SingleNumber {
 

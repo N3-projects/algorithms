@@ -5,7 +5,7 @@ package algorithms.leetcode;
  * 你可以先拿。
  * <p>写一个函数判断，在给定石头总个数的情况下，你是否可以必定获胜。
  *
- * @author yemaofpa on 2016/11/14.
+ * @author N3 on 2016/11/14.
  */
 public class _292_NimGame {
 
