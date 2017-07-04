@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class Test_292_NimGame {
 
-    private _292_NimGame nimGame = new _292_NimGame();
+    private No_292_NimGame nimGame = new No_292_NimGame();
 
     @Test
     public void test() {

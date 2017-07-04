@@ -6,7 +6,7 @@ package algorithms.leetcode;
  *
  * @author N3 on 2017/2/14.
  */
-public class _258_AddDigits {
+public class No_258_AddDigits {
 
     /**
      * <p>

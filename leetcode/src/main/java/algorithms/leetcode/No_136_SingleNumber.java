@@ -10,7 +10,7 @@ package algorithms.leetcode;
  *
  * @author N3 on 2017/2/14.
  */
-public class _136_SingleNumber {
+public class No_136_SingleNumber {
 
     /**
      * <p>

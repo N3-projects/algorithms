@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class Test_258_AddDigits {
 
-    private _258_AddDigits addDigits = new _258_AddDigits();
+    private No_258_AddDigits addDigits = new No_258_AddDigits();
 
     @Test
     public void test() {
