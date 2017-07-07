@@ -1,5 +1,6 @@
 package algorithms.leetcode;
 
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -33,22 +34,65 @@ public class No_104_MaximumDepthOfBinaryTree {
      * @see <a href="https://leetcode.com/problems/maximum-depth-of-binary-tree">maximum-depth-of-binary-tree</a>
      */
     public int maxDepth(TreeNode root) {
+//        return depthFirstSearch(root);
+        return breadthFirstSearch(root);
+    }
+
+    /**
+     * 深度优先遍历
+     * @param root
+     * @return
+     */
+    private int depthFirstSearch(TreeNode root) {
         if (root == null) {
             return 0;
         }
-        LinkedList<TreeNode> stack = new LinkedList<>();
-        stack.addFirst(root);
-        int depth = 0;
+        Deque<TreeNode> stack = new LinkedList<>();
+        Deque<Integer> depthStack = new LinkedList<>();
+        int depth = 1;
+        stack.offer(root);
+        depthStack.offer(depth);
+        int maxDepth = depth;
         while (!stack.isEmpty()) {
-            depth++;
-            int breadth = stack.size();
-            for (int i = 0; i < breadth; i++) {
-                TreeNode node = stack.pop();
+            TreeNode node = stack.poll();
+            depth = depthStack.poll();
+            maxDepth = depth>maxDepth ? depth : maxDepth;
+            if (node != null) {
                 if (node.left != null) {
-                    stack.addLast(node.left);
+                    stack.offer(node.left);
+                    depthStack.offer(depth+1);
                 }
                 if (node.right != null) {
-                    stack.addLast(node.right);
+                    stack.offer(node.right);
+                    depthStack.offer(depth+1);
+                }
+            }
+        }
+        return maxDepth;
+    }
+
+    /**
+     * 广度优先遍历
+     * @param root
+     * @return
+     */
+    private int breadthFirstSearch(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        int depth = 0;
+        while (!queue.isEmpty()) {
+            depth++;
+            int breadth = queue.size();
+            for (int i = 0; i < breadth; i++) {
+                TreeNode node = queue.poll();
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+                if (node.right != null) {
+                    queue.offer(node.right);
                 }
             }
         }
