@@ -9,6 +9,8 @@
 
     <modules>
         <module>leetcode</module>
+        <module>foundation</module>
+        <module>collections</module>
     </modules>
 
     <properties>
@@ -17,6 +19,7 @@
 
         <!-- 各依赖包版本号 -->
         <junit.version>4.6</junit.version>
+        <testng.version>6.10</testng.version>
     </properties>
 
     <build>
