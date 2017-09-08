@@ -6,6 +6,9 @@ package n3.algorithms.collections.link;
  */
 public class LinkSort {
 
+    /**
+     * 使用冒泡排序算法
+     */
     public static Node<Integer> bubbleSort(Node<Integer> root) {
         if (root == null) {
             return null;
@@ -28,4 +31,71 @@ public class LinkSort {
         return root;
     }
 
+    /**
+     * 使用归并排序算法<br>
+     * <b>对于链表排序而言，归并排序算法为最佳的排序算法，
+     * 既保证了nlogn的时间复杂度，空间复杂度也固定在O(1)，而数组的归并排序空间复杂度为O(n)</b>
+     */
+    public static Node<Integer> mergeSort(Node<Integer> root) {
+        if (root == null) {
+            return null;
+        }
+        if (root.next == null) {
+            return root;
+        }
+        //快慢指针找到中间节点
+        Node<Integer> fast = root;  //步长为2
+        Node<Integer> slow = root;  //步长为1
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        //此时slow节点即为中间几点，
+        Node<Integer> mid = slow.next;  //右边链表的头为slow.next节点
+        slow.next = null;   //切断左右两边，链表拆分为2个链表
+
+        Node<Integer> left = mergeSort(root);
+        Node<Integer> right = mergeSort(mid);
+        return merge(left, right);
+    }
+
+    private static Node<Integer> merge(Node<Integer> left, Node<Integer> right) {
+        if (left == null) {
+            return right;
+        } else if (right == null) {
+            return left;
+        }
+        Node<Integer> root ;
+        if (left.value <= right.value) {
+            root = left;
+            left = left.next;
+        } else {
+            root = right;
+            right = right.next;
+        }
+        Node<Integer> temp = root;
+        while (left != null && right != null) {
+            if (left.value <= right.value) {
+                temp.next = left;
+                left = left.next;
+            } else {
+                temp.next = right;
+                right = right.next;
+            }
+            temp = temp.next;
+        }
+        //左右两部分有一个已经遍历完了，另一个可能有多余，处理完剩下的节点
+        while (left != null) {
+            temp.next = left;
+            left = left.next;
+            temp = temp.next;
+        }
+        while (right != null) {
+            temp.next = right;
+            right = right.next;
+            temp = temp.next;
+        }
+
+        return root;
+    }
 }

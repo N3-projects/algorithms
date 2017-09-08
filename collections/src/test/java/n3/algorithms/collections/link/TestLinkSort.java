@@ -12,7 +12,7 @@ import java.util.Random;
 public class TestLinkSort {
 
     private Node<Integer> root = new Node<>(new Random().nextInt(100), null);
-    private int size = 16;
+    private int size = 5;
 
     @BeforeTest
     public void prepare() {
@@ -42,6 +42,18 @@ public class TestLinkSort {
     @Test
     public void testBubbleSort() {
         Node<Integer> resultRoot = LinkSort.bubbleSort(root);
+        printLink(resultRoot);
+
+        Node<Integer> node = resultRoot;
+        while (node.next != null) {
+            Assert.assertTrue(node.value < node.next.value);
+            node = node.next;
+        }
+    }
+
+    @Test
+    public void testMergeSort() {
+        Node<Integer> resultRoot = LinkSort.mergeSort(root);
         printLink(resultRoot);
 
         Node<Integer> node = resultRoot;
