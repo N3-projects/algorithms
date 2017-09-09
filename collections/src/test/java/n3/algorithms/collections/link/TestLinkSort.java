@@ -1,42 +1,22 @@
 package n3.algorithms.collections.link;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
-import java.util.Random;
 
 /**
  * @author N3 on 2017/9/6.
  */
-public class TestLinkSort {
+public class TestLinkSort extends BaseLinkTest{
 
-    private Node<Integer> root = new Node<>(new Random().nextInt(100), null);
-    private int size = 5;
+    private Node<Integer> root;
 
-    @BeforeTest
+    @BeforeMethod
     public void prepare() {
-        Node node = root;
-        for (int i = 0; i < size-1; i++) {
-            node.next = new Node<>(new Random().nextInt(100), null);
-            node = node.next;
-        }
+        int length = 5;
+        root = buildLink(length);
         printLink(root);
-    }
-
-    private void printLink(Node root) {
-        if (root == null) {
-            return;
-        }
-        Node node = root;
-        while (node != null) {
-            System.out.print(node.value);
-            node = node.next;
-            if (node != null) {
-                System.out.print(",");
-            }
-        }
-        System.out.println();
     }
 
     @Test
@@ -56,10 +36,6 @@ public class TestLinkSort {
         Node<Integer> resultRoot = LinkSort.mergeSort(root);
         printLink(resultRoot);
 
-        Node<Integer> node = resultRoot;
-        while (node.next != null) {
-            Assert.assertTrue(node.value < node.next.value);
-            node = node.next;
-        }
+        assertSortAsc(resultRoot);
     }
 }

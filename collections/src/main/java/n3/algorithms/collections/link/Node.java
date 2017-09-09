@@ -3,7 +3,7 @@ package n3.algorithms.collections.link;
 /**
  * @author N3 on 2017/9/6.
  */
-class Node<E> {
+class Node<E extends Comparable<E>> {
 
     public E value;
     public Node<E> next;
