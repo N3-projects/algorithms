@@ -7,7 +7,7 @@ package n3.algorithms.collections.link;
 public class LinkSort {
 
     /**
-     * 使用冒泡排序算法
+     * 使用冒泡排序算法，交换链表节点value值
      */
     public static Node<Integer> bubbleSort(Node<Integer> root) {
         if (root == null) {
@@ -32,7 +32,7 @@ public class LinkSort {
     }
 
     /**
-     * 使用归并排序算法<br>
+     * 使用归并排序算法，交换链表节点<br>
      * <b>对于链表排序而言，归并排序算法为最佳的排序算法，
      * 既保证了nlogn的时间复杂度，空间复杂度也固定在O(1)，而数组的归并排序空间复杂度为O(n)</b>
      */
@@ -98,4 +98,59 @@ public class LinkSort {
 
         return root;
     }
+
+    /*  错误示例
+    public static Node<Integer> quickSort(Node<Integer> head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        Node<Integer> low = null;
+        Node<Integer> lowTail = null;
+        Node<Integer> high = null;
+        Node<Integer> highTail = null;
+        // 选取头结点作为中枢节点
+        Node<Integer> key = head;
+        Node<Integer> temp = head.next;
+        key.next = null;
+        while (temp != null) {
+            if (temp.value > key.value) {
+                // 比key大的节点加入到高位链表
+                if (high == null) {
+                    high = temp;
+                    highTail = high;
+                } else {
+                    highTail.next = temp;
+                    highTail = highTail.next;
+                }
+            } else {
+                // 比key小的节点加入到低位链表
+                if (low == null) {
+                    low = temp;
+                    lowTail = low;
+                } else {
+                    lowTail.next = temp;
+                    lowTail = lowTail.next;
+                }
+            }
+            temp = temp.next;
+        }
+        if (lowTail != null) {
+            lowTail.next = null;
+        }
+        if (highTail != null) {
+            highTail.next = null;
+        }
+        low = quickSort(low);
+        high = quickSort(high);
+        if (low == null) {
+            key.next = high;
+            return key;
+        } else {
+            lowTail.next = key;     //问题出在这里，这里的lowTail只是还指向的是low链表在排序前的尾部节点
+            key.next = high;
+            return low;
+        }
+    }
+    */
+
 }

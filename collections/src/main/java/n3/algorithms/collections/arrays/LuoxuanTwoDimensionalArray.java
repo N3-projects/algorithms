@@ -7,7 +7,7 @@ package n3.algorithms.collections.arrays;
  */
 public class LuoxuanTwoDimensionalArray {
 
-    public static void run(int[][] a) {
+    public static void print(int[][] a) {
         int xStart = 0;
         int xEnd = a.length-1;
         int yStart = 0;

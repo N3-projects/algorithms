@@ -1,8 +1,6 @@
 package n3.algorithms.collections.link;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 /**
@@ -24,16 +22,26 @@ public class TestLinkSort extends BaseLinkTest{
         Node<Integer> resultRoot = LinkSort.bubbleSort(root);
         printLink(resultRoot);
 
-        Node<Integer> node = resultRoot;
-        while (node.next != null) {
-            Assert.assertTrue(node.value < node.next.value);
-            node = node.next;
-        }
+        assertSortAsc(resultRoot);
     }
 
     @Test
     public void testMergeSort() {
         Node<Integer> resultRoot = LinkSort.mergeSort(root);
+        printLink(resultRoot);
+
+        assertSortAsc(resultRoot);
+    }
+
+    @Test
+    public void testQuickSort() {
+        root = new Node<>(64, null);
+        root.next = new Node<>(27, null);
+        root.next.next = new Node<>(49, null);
+        root.next.next.next = new Node<>(84, null);
+        root.next.next.next.next = new Node<>(16, null);
+
+        Node<Integer> resultRoot = LinkSort.quickSort(root);
         printLink(resultRoot);
 
         assertSortAsc(resultRoot);
