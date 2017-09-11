@@ -19,9 +19,7 @@ public class LinkSort {
             Node<Integer> temp = root;
             while(temp.next != j) {
                 if(temp.value > temp.next.value) {
-                    Integer value = temp.value;
-                    temp.value = temp.next.value;
-                    temp.next.value = value;
+                    swapNodeValue(temp, temp.next);
                 }
                 temp = temp.next;
             }
