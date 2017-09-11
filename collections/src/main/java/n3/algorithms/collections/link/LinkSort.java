@@ -33,8 +33,10 @@ public class LinkSort {
 
     /**
      * 使用归并排序算法，交换链表节点<br>
+     * <p>
      * <b>对于链表排序而言，归并排序算法为最佳的排序算法，
      * 既保证了nlogn的时间复杂度，空间复杂度也固定在O(1)，而数组的归并排序空间复杂度为O(n)</b>
+     * </p>
      */
     public static Node<Integer> mergeSort(Node<Integer> root) {
         if (root == null) {
@@ -99,7 +101,7 @@ public class LinkSort {
         return root;
     }
 
-    /*  错误示例
+    /*  快速排序算法-错误示例
     public static Node<Integer> quickSort(Node<Integer> head) {
         if (head == null || head.next == null) {
             return head;
@@ -153,4 +155,50 @@ public class LinkSort {
     }
     */
 
+    /**
+     * 使用快速排序算法
+     */
+    public static Node<Integer> quickSort(Node<Integer> head) {
+        quickSort(head, null);
+        return head;
+    }
+
+    public static void quickSort(Node<Integer> start, Node<Integer> end) {
+        if (start != end && start.next != end) {
+            Node<Integer> pivot = partitionLink(start, end);
+            quickSort(start, pivot);
+            quickSort(pivot.next, end);
+        }
+    }
+
+    /**
+     * 采用同向遍历的快速排序算法，算法交换节点的value值，排序范围为[start, end)左闭右开
+     * {@link n3.algorithms.fondation.sort.QuickSort#partitionOneWay_lowAsPartition(int[], int, int)}
+     * @return 中枢节点
+     */
+    private static Node<Integer> partitionLink(Node<Integer> start, Node<Integer> end) {
+        if (start == null || start.next == null) {
+            return start;
+        }
+        int key = start.value;
+        Node<Integer> low = start;
+        Node<Integer> high = start.next;
+        while (high != end) {
+            if (high.value < key) {
+                low = low.next;
+                swapNodeValue(low, high);
+            }
+            high = high.next;
+        }
+        swapNodeValue(start, low);
+        return low;
+    }
+
+    private static void swapNodeValue(Node<Integer> n1, Node<Integer> n2) {
+        if (n1 != null && n2 != null) {
+            int temp = n1.value;
+            n1.value = n2.value;
+            n2.value = temp;
+        }
+    }
 }

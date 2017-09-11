@@ -12,7 +12,7 @@ public class TestLinkSort extends BaseLinkTest{
 
     @BeforeMethod
     public void prepare() {
-        int length = 5;
+        int length = 7;
         root = buildLink(length);
         printLink(root);
     }
@@ -35,12 +35,6 @@ public class TestLinkSort extends BaseLinkTest{
 
     @Test
     public void testQuickSort() {
-        root = new Node<>(64, null);
-        root.next = new Node<>(27, null);
-        root.next.next = new Node<>(49, null);
-        root.next.next.next = new Node<>(84, null);
-        root.next.next.next.next = new Node<>(16, null);
-
         Node<Integer> resultRoot = LinkSort.quickSort(root);
         printLink(resultRoot);
 
