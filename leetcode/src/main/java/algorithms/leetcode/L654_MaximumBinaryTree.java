@@ -1,5 +1,7 @@
 package algorithms.leetcode;
 
+import n3.algorithms.fondation.structure.TreeNode;
+
 import java.util.LinkedList;
 
 /**
@@ -8,27 +10,18 @@ import java.util.LinkedList;
  * 2. 左子树是由数组中最大整数左半部分的数组构造而成的“最大树”
  * 3. 右子树是由数组中最大整数左半部分的数组构造而成的“最大树”
  * <p>写一根据指定的数组构造这种“最大树”并输出它。
+ * <p>Note：原数组的大小范围在1-1000之内。
  *
  * @author N3 on 2016/11/14.
  */
-public class No_654_MaxinumBinaryTree {
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
+public class L654_MaximumBinaryTree {
 
     /**
      * <P> <b>总结：</b><br>
-     * 1. 通过简单枚举找到规律（可一行代码解决问题）<br>
-     * 2. 除了枚举发现规律外，按正常逻辑，算法可关联斐波那契数列
+     * 1. 最容易想到的是递归算法实现，且原定义条件中有说明数组大小在1000以内，不会有栈溢出的问题
      * <P> <b>优化：</b><br>
-     * 采用非递归算法，降低复杂度
+     * 采用非递归算法，需要仔细思考下这种二叉树构建的特点<br>
+     * 遍历数组插入到二叉树中，当新插入的节点比之前的根节点大时该当如何，比之前的根节点小时又该当如何
      *
      * @param n 石头总个数
      * @return 先手是否可以必胜
@@ -65,7 +58,7 @@ public class No_654_MaxinumBinaryTree {
         return root;
     }
 
-    public TreeNode constructMaximumBinaryTree_nlogn(int[] nums) {
+    public TreeNode constructMaximumBinaryTreeNonRecursive(int[] nums) {
 
         if (nums == null || nums.length == 0) {
             return null;
@@ -73,7 +66,7 @@ public class No_654_MaxinumBinaryTree {
         LinkedList<TreeNode> stack = new LinkedList<>();
         for (int i = 0; i < nums.length; i++) {
             TreeNode cur = new TreeNode(nums[i]);
-            while (!stack.isEmpty() && stack.peekLast().val < nums[i]) {
+            while (!stack.isEmpty() && stack.peekLast().value < nums[i]) {
                 cur.left = stack.pollLast();
             }
             if (!stack.isEmpty()) {

@@ -11,6 +11,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>N3.projects</groupId>
+            <artifactId>algorithms-foundation</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
