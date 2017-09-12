@@ -1,22 +1,23 @@
 package algorithms.leetcode;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import java.util.Random;
+
+import static org.testng.Assert.assertEquals;
 
 /**
  * @author N3 on 2016/11/14.
  */
-public class Test_292_NimGame {
+public class TestL292_NimGame {
 
-    private No_292_NimGame nimGame = new No_292_NimGame();
+    private L292_NimGame nimGame = new L292_NimGame();
 
     @Test
     public void test() {
         int n = new Random().nextInt(Integer.MAX_VALUE);
         System.out.println("test n=" + n);
-        Assert.assertEquals(nimGame.isMustWin(n), isMustWin(n));
+        assertEquals(nimGame.isMustWin(n), isMustWin(n));
     }
 
     /**

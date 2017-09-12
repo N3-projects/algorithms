@@ -10,7 +10,7 @@ import java.util.Queue;
  * </p>
  * @author N3 on 2017/7/4.
  */
-public class No_104_MaximumDepthOfBinaryTree {
+public class L104_MaximumDepthOfBinaryTree {
 
     public class TreeNode {
         int val;

@@ -1,13 +1,13 @@
 package algorithms.leetcode;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 /**
  * @author N3 on 2017/8/31.
  */
-public class Test_535_TinyUrl {
+public class TestL535_TinyUrl {
 
-    No_535_TinyUrl tinyUrl = new No_535_TinyUrl();
+    L535_TinyUrl tinyUrl = new L535_TinyUrl();
 
     @Test
     public void test() {

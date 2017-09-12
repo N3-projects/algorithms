@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * </p>
  * @author N3 on 2017/8/30.
  */
-public class No_535_TinyUrl {
+public class L535_TinyUrl {
 
     private AtomicLong seq = new AtomicLong(64*64*64);  //起始长度为4位短链
     private ConcurrentHashMap<String, String> short2Long = new ConcurrentHashMap<>();

@@ -1,21 +1,22 @@
 package algorithms.leetcode;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import java.util.Random;
+
+import static org.testng.Assert.assertEquals;
 
 /**
  * @author N3 on 2016/11/14.
  */
-public class Test_258_AddDigits {
+public class TestL258_AddDigits {
 
-    private No_258_AddDigits addDigits = new No_258_AddDigits();
+    private L258_AddDigits addDigits = new L258_AddDigits();
 
     @Test
     public void test() {
         int num = new Random().nextInt();
-        Assert.assertEquals(addDigits.addDigits(num), addDigits(num));
+        assertEquals(addDigits.addDigits(num), addDigits(num));
     }
 
     private  int addDigits(int num) {

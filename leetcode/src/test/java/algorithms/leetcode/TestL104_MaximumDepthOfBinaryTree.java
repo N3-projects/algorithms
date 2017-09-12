@@ -1,19 +1,20 @@
 package algorithms.leetcode;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import algorithms.leetcode.No_104_MaximumDepthOfBinaryTree.TreeNode;
+import algorithms.leetcode.L104_MaximumDepthOfBinaryTree.TreeNode;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertEquals;
 
 /**
  * @author N3 on 2017/7/4.
  */
-public class Test_104_MaximumDepthOfBinaryTree {
+public class TestL104_MaximumDepthOfBinaryTree {
 
-    private No_104_MaximumDepthOfBinaryTree maxDepth = new No_104_MaximumDepthOfBinaryTree();
+    private L104_MaximumDepthOfBinaryTree maxDepth = new L104_MaximumDepthOfBinaryTree();
     private TreeNode root = maxDepth.new TreeNode(1);
 
-    @Before
+    @BeforeMethod
     public void prepare() {
         root.left = maxDepth.new TreeNode(2);
         root.right = maxDepth.new TreeNode(2);
@@ -29,7 +30,7 @@ public class Test_104_MaximumDepthOfBinaryTree {
     @Test
     public void test() {
         int maxDepth = this.maxDepth.maxDepth(root);
-        Assert.assertEquals(4, maxDepth);
+        assertEquals(4, maxDepth);
     }
 
     /**

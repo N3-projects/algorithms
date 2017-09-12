@@ -7,7 +7,7 @@ package algorithms.leetcode;
  *
  * @author N3 on 2016/11/14.
  */
-public class No_292_NimGame {
+public class L292_NimGame {
 
     /**
      * <P> <b>总结：</b><br>

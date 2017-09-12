@@ -18,7 +18,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- 各依赖包版本号 -->
-        <junit.version>4.6</junit.version>
         <testng.version>6.10</testng.version>
     </properties>
 
@@ -94,7 +93,7 @@
                                         <!--<exclude>org.slf4j:slf4j-log4j12</exclude>-->
                                     </excludes>
                                     <includes>
-                                        <include>junit:junit:test</include>
+                                        <!--<include>junit:junit:test</include>-->
                                         <include>org.testng:testng:test</include>
                                     </includes>
                                 </bannedDependencies>
