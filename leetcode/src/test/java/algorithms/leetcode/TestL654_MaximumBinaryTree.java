@@ -25,19 +25,6 @@ public class TestL654_MaximumBinaryTree {
     }
 
     public TreeNode constructMaximumBinaryTree(int[] a) {
-
-        Deque<TreeNode> stack = new LinkedList<>();
-        for (int i = 0; i < a.length; i++) {
-            TreeNode node = new TreeNode(a[i]);
-            while (!stack.isEmpty() && stack.peekLast().value < node.value) {
-                TreeNode tail = stack.pollLast();
-                node.left = tail;
-            }
-            if (!stack.isEmpty()) {
-                stack.peekLast().right = node;
-            }
-            stack.add(node);
-        }
-        return stack.peekFirst();
+        return null;
     }
 }
