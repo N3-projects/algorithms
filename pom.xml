@@ -11,6 +11,7 @@
         <module>leetcode</module>
         <module>foundation</module>
         <module>collections</module>
+        <module>common</module>
     </modules>
 
     <properties>

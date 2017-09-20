@@ -1,11 +1,8 @@
 package algorithms.leetcode;
 
-import n3.algorithms.fondation.structure.TreeNode;
+import n3.algorithms.common.structure.TreeNode;
 import n3.algorithms.fondation.tree.TreeTraversal;
 import org.testng.annotations.Test;
-
-import java.util.Deque;
-import java.util.LinkedList;
 
 /**
  * @author hzyemao

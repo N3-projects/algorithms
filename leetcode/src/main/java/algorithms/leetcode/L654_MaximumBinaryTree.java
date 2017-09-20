@@ -1,6 +1,6 @@
 package algorithms.leetcode;
 
-import n3.algorithms.fondation.structure.TreeNode;
+import n3.algorithms.common.structure.TreeNode;
 
 import java.util.LinkedList;
 

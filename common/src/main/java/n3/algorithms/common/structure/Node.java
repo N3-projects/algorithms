@@ -1,4 +1,4 @@
-package n3.algorithms.fondation.structure;
+package n3.algorithms.common.structure;
 
 /**
  * @author hzyemao
