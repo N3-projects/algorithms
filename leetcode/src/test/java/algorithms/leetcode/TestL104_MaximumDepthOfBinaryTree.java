@@ -1,6 +1,6 @@
 package algorithms.leetcode;
 
-import algorithms.leetcode.L104_MaximumDepthOfBinaryTree.TreeNode;
+import n3.algorithms.common.structure.TreeNode;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -12,19 +12,19 @@ import static org.testng.Assert.assertEquals;
 public class TestL104_MaximumDepthOfBinaryTree {
 
     private L104_MaximumDepthOfBinaryTree maxDepth = new L104_MaximumDepthOfBinaryTree();
-    private TreeNode root = maxDepth.new TreeNode(1);
+    private TreeNode root = new TreeNode(1);
 
     @BeforeMethod
     public void prepare() {
-        root.left = maxDepth.new TreeNode(2);
-        root.right = maxDepth.new TreeNode(2);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(2);
 
-        root.left.left = maxDepth.new TreeNode(3);
-        root.left.right = maxDepth.new TreeNode(3);
-        root.right.left = maxDepth.new TreeNode(3);
-        root.right.right = maxDepth.new TreeNode(3);
+        root.left.left = new TreeNode(3);
+        root.left.right = new TreeNode(3);
+        root.right.left = new TreeNode(3);
+        root.right.right = new TreeNode(3);
 
-        root.right.left.left = maxDepth.new TreeNode(4);
+        root.right.left.left = new TreeNode(4);
     }
 
     @Test
