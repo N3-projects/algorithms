@@ -1,5 +1,8 @@
 package algorithms.leetcode;
 
+import n3.algorithms.common.tag.KeyIdea;
+import n3.algorithms.common.tag.Tag;
+
 import java.util.LinkedList;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
@@ -10,6 +13,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * </p>
  * @author N3 on 2017/8/30.
  */
+@Tag(KeyIdea.数字or进制)
 public class L535_TinyUrl {
 
     private AtomicLong seq = new AtomicLong(64*64*64);  //起始长度为4位短链

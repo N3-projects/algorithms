@@ -1,6 +1,8 @@
 package algorithms.leetcode;
 
 import n3.algorithms.common.structure.TreeNode;
+import n3.algorithms.common.tag.KeyIdea;
+import n3.algorithms.common.tag.Tag;
 
 import java.util.LinkedList;
 
@@ -36,6 +38,7 @@ public class L654_MaximumBinaryTree {
         return constructInternal(nums, 0, nums.length - 1);
     }
 
+    @Tag(KeyIdea.递归)
     private TreeNode constructInternal(int[] nums, int start, int end) {
         if (start == end) {
             return new TreeNode(nums[start]);
@@ -58,7 +61,7 @@ public class L654_MaximumBinaryTree {
         return root;
     }
 
-    public TreeNode constructMaximumBinaryTreeNonRecursive(int[] nums) {
+    public TreeNode constructMaximumBinaryTree_nonRecursive(int[] nums) {
 
         if (nums == null || nums.length == 0) {
             return null;

@@ -1,5 +1,8 @@
 package algorithms.leetcode;
 
+import n3.algorithms.common.tag.KeyIdea;
+import n3.algorithms.common.tag.Tag;
+
 /**
  * <p>汉明距离是指两个数字的二进制数字中相同位置上的不同数字的个数。<br>
  * 如1=0001,4=0100，那么1和4的汉明距离就是2
@@ -7,6 +10,7 @@ package algorithms.leetcode;
  *
  * @author N3 on 2016/11/14.
  */
+@Tag(KeyIdea.位运算)
 public class L461_HammingDistance {
 
     /**

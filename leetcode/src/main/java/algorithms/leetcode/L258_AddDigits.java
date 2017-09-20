@@ -1,11 +1,15 @@
 package algorithms.leetcode;
 
+import n3.algorithms.common.tag.KeyIdea;
+import n3.algorithms.common.tag.Tag;
+
 /**
  * 给定一个非负整数num，将其所有位数上的数字相加，如此循环，直到得到一个个位数数字。<br>
  * 举例：num = 38, 3 + 8 = 11, 1 + 1 = 2, 2即为结果。
  *
  * @author N3 on 2017/2/14.
  */
+@Tag(KeyIdea.数字or进制)
 public class L258_AddDigits {
 
     /**

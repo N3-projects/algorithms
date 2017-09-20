@@ -1,5 +1,8 @@
 package algorithms.leetcode;
 
+import n3.algorithms.common.tag.KeyIdea;
+import n3.algorithms.common.tag.Tag;
+
 /**
  * <p>
  * 有一个int型的数组，其中所有的数字都出现了2次，仅有一个数只出现了一次，请找出这个唯一的数字。
@@ -10,6 +13,7 @@ package algorithms.leetcode;
  *
  * @author N3 on 2017/2/14.
  */
+@Tag(KeyIdea.位运算)
 public class L136_SingleNumber {
 
     /**

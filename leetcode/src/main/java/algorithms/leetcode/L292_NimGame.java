@@ -1,5 +1,8 @@
 package algorithms.leetcode;
 
+import n3.algorithms.common.tag.KeyIdea;
+import n3.algorithms.common.tag.Tag;
+
 /**
  * <p>你和你的朋友玩一个游戏：桌子上有一堆石头，每次可以拿走1-3个，最后一次拿走剩下所有石头的人获胜。<br>
  * 你可以先拿。
@@ -20,7 +23,15 @@ public class L292_NimGame {
      * @return 先手是否可以必胜
      * @see <a href="https://leetcode.com/problems/nim-game">nim-game</a>
      */
+    @Tag(KeyIdea.递归)
     public boolean isMustWin(int n) {
+        if (n == 1 || n == 2 || n == 3) {
+            return true;
+        }
+        return !isMustWin(n-1) || !isMustWin(n-2) || !isMustWin(n-3);
+    }
+
+    public boolean isMustWin_nonRecursive(int n) {
         if (n == 1 || n == 2 || n == 3) {
             return true;
         }

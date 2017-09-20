@@ -1,5 +1,8 @@
 package algorithms.leetcode;
 
+import n3.algorithms.common.tag.KeyIdea;
+import n3.algorithms.common.tag.Tag;
+
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -10,6 +13,7 @@ import java.util.Queue;
  * </p>
  * @author N3 on 2017/7/4.
  */
+@Tag(KeyIdea.辅助栈or队列)
 public class L104_MaximumDepthOfBinaryTree {
 
     public class TreeNode {
