@@ -8,10 +8,10 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>leetcode</module>
-        <module>foundation</module>
-        <module>collections</module>
         <module>common</module>
+        <module>foundation</module>
+        <module>leetcode</module>
+        <module>practice</module>
     </modules>
 
     <properties>
@@ -21,6 +21,23 @@
         <!-- 各依赖包版本号 -->
         <testng.version>6.10</testng.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>N3.projects</groupId>
+                <artifactId>algorithms-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+                <version>${testng.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>
@@ -42,6 +59,15 @@
                     <encoding>${project.build.sourceEncoding}</encoding>
                     <showDeprecation>true</showDeprecation>
                     <showWarnings>true</showWarnings>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
                 </configuration>
             </plugin>
 

@@ -1,4 +1,4 @@
-package n3.algorithms.collections.arrays;
+package n3.algorithms.practice.arrays;
 
 /**
  * 螺旋输出一个二维数组

@@ -1,4 +1,6 @@
-package n3.algorithms.collections.link;
+package n3.algorithms.practice.link;
+
+import n3.algorithms.common.structure.LinkNode;
 
 /**
  * 给定一个无序的链表，请将这个链表排序，返回一个有序的列表
@@ -9,17 +11,17 @@ public class LinkSort {
     /**
      * 使用冒泡排序算法，交换链表节点value值
      */
-    public static Node<Integer> bubbleSort(Node<Integer> root) {
+    public static LinkNode bubbleSort(LinkNode root) {
         if (root == null) {
             return null;
         }
-        Node<Integer> i = root;
-        Node<Integer> j = null;
+        LinkNode i = root;
+        LinkNode j = null;
         while (i.next != null) {
-            Node<Integer> temp = root;
+            LinkNode temp = root;
             while(temp.next != j) {
                 if(temp.value > temp.next.value) {
-                    swapNodeValue(temp, temp.next);
+                    swapLinkNodeValue(temp, temp.next);
                 }
                 temp = temp.next;
             }
@@ -36,7 +38,7 @@ public class LinkSort {
      * 既保证了nlogn的时间复杂度，空间复杂度也固定在O(1)，而数组的归并排序空间复杂度为O(n)</b>
      * </p>
      */
-    public static Node<Integer> mergeSort(Node<Integer> root) {
+    public static LinkNode mergeSort(LinkNode root) {
         if (root == null) {
             return null;
         }
@@ -44,28 +46,28 @@ public class LinkSort {
             return root;
         }
         //快慢指针找到中间节点
-        Node<Integer> fast = root;  //步长为2
-        Node<Integer> slow = root;  //步长为1
+        LinkNode fast = root;  //步长为2
+        LinkNode slow = root;  //步长为1
         while (fast.next != null && fast.next.next != null) {
             fast = fast.next.next;
             slow = slow.next;
         }
         //此时slow节点即为中间几点，
-        Node<Integer> mid = slow.next;  //右边链表的头为slow.next节点
+        LinkNode mid = slow.next;  //右边链表的头为slow.next节点
         slow.next = null;   //切断左右两边，链表拆分为2个链表
 
-        Node<Integer> left = mergeSort(root);
-        Node<Integer> right = mergeSort(mid);
+        LinkNode left = mergeSort(root);
+        LinkNode right = mergeSort(mid);
         return merge(left, right);
     }
 
-    private static Node<Integer> merge(Node<Integer> left, Node<Integer> right) {
+    private static LinkNode merge(LinkNode left, LinkNode right) {
         if (left == null) {
             return right;
         } else if (right == null) {
             return left;
         }
-        Node<Integer> root ;
+        LinkNode root ;
         if (left.value <= right.value) {
             root = left;
             left = left.next;
@@ -73,7 +75,7 @@ public class LinkSort {
             root = right;
             right = right.next;
         }
-        Node<Integer> temp = root;
+        LinkNode temp = root;
         while (left != null && right != null) {
             if (left.value <= right.value) {
                 temp.next = left;
@@ -100,17 +102,17 @@ public class LinkSort {
     }
 
     /*  快速排序算法-错误示例
-    public static Node<Integer> quickSort(Node<Integer> head) {
+    public static LinkNode quickSort(LinkNode head) {
         if (head == null || head.next == null) {
             return head;
         }
-        Node<Integer> low = null;
-        Node<Integer> lowTail = null;
-        Node<Integer> high = null;
-        Node<Integer> highTail = null;
+        LinkNode low = null;
+        LinkNode lowTail = null;
+        LinkNode high = null;
+        LinkNode highTail = null;
         // 选取头结点作为中枢节点
-        Node<Integer> key = head;
-        Node<Integer> temp = head.next;
+        LinkNode key = head;
+        LinkNode temp = head.next;
         key.next = null;
         while (temp != null) {
             if (temp.value > key.value) {
@@ -156,14 +158,14 @@ public class LinkSort {
     /**
      * 使用快速排序算法
      */
-    public static Node<Integer> quickSort(Node<Integer> head) {
+    public static LinkNode quickSort(LinkNode head) {
         quickSort(head, null);
         return head;
     }
 
-    public static void quickSort(Node<Integer> start, Node<Integer> end) {
+    public static void quickSort(LinkNode start, LinkNode end) {
         if (start != end && start.next != end) {
-            Node<Integer> pivot = partitionLink(start, end);
+            LinkNode pivot = partitionLink(start, end);
             quickSort(start, pivot);
             quickSort(pivot.next, end);
         }
@@ -174,25 +176,25 @@ public class LinkSort {
      * {@link n3.algorithms.fondation.sort.QuickSort#partitionOneWay_lowAsPartition(int[], int, int)}
      * @return 中枢节点
      */
-    private static Node<Integer> partitionLink(Node<Integer> start, Node<Integer> end) {
+    private static LinkNode partitionLink(LinkNode start, LinkNode end) {
         if (start == null || start.next == null) {
             return start;
         }
         int key = start.value;
-        Node<Integer> low = start;
-        Node<Integer> high = start.next;
+        LinkNode low = start;
+        LinkNode high = start.next;
         while (high != end) {
             if (high.value < key) {
                 low = low.next;
-                swapNodeValue(low, high);
+                swapLinkNodeValue(low, high);
             }
             high = high.next;
         }
-        swapNodeValue(start, low);
+        swapLinkNodeValue(start, low);
         return low;
     }
 
-    private static void swapNodeValue(Node<Integer> n1, Node<Integer> n2) {
+    private static void swapLinkNodeValue(LinkNode n1, LinkNode n2) {
         if (n1 != null && n2 != null) {
             int temp = n1.value;
             n1.value = n2.value;
